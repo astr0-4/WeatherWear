@@ -20,6 +20,8 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
     @IBOutlet weak var refreshButton: UIButton?
     
     let locationManager = CLLocationManager()
+    var currentLongitude: Double = 37.8267
+    var currentLatitude: Double = -122.4233
     
     private let forecastAPIKey: String = {
         if let plistPath = NSBundle.mainBundle().pathForResource("CurrentWeather", ofType: "plist"),
@@ -29,16 +31,30 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
             return ""
         }
     }()
-
-    let coordinate: (lat: Double, long: Double) = (37.8267, -122.423)
+    
+//    let currentCoordinate: (lat: Double, long: Double) = {
+//        var locValue:CLLocationCoordinate2D = locationManager.location.coordinate
+//        var currentLocation = CLLocation()
+//        var currentLatitude = currentLocation.coordinate.latitude
+//        var currentLongitude = currentLocation.coordinate.longitude
+//        return (currentLatitude, currentLongitude)
+//    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
 
-        retrieveWeatherForecast()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        }
+        
+        retrieveWeatherForecast(currentLatitude, long: currentLongitude)
+      //  println("current location: \(coordinate)")
+
         println("forecast key: \(forecastAPIKey)")
     }
     
@@ -47,9 +63,9 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
         // Dispose of any resources that can be recreated.
     }
     
-    func retrieveWeatherForecast() {
+    func retrieveWeatherForecast(lat: Double, long: Double) {
         let forecastService = ForecastService(APIKey: forecastAPIKey)
-        forecastService.getForecast(coordinate.lat, long: coordinate.long) {
+        forecastService.getForecast(currentLatitude, long: currentLongitude) {
             (let currently) in
             if let currentWeather = currently {
                 // update UI
@@ -71,17 +87,25 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
                     if let summary = currentWeather.summary {
                         self.currentWeatherSummary?.text = summary
                     }
-                    
+                                       
                     self.toggleRefreshAnimation(false)
                 }
             }
         }
     }
-    
-    
+
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+        
+        println("location = \(locValue.latitude), \(locValue.longitude)")
+        var currentLocation = CLLocation()
+        currentLatitude = currentLocation.coordinate.latitude
+        currentLongitude = currentLocation.coordinate.longitude
+    }
+
     @IBAction func refreshWeather() {
         toggleRefreshAnimation(true)
-        retrieveWeatherForecast()
+        retrieveWeatherForecast(currentLatitude, long:currentLongitude)
     }
     
     func toggleRefreshAnimation(on: Bool) {
