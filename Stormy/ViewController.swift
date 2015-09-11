@@ -19,12 +19,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
     @IBOutlet weak var refreshButton: UIButton?
-    private let forecastAPIKey = ""
+    private let forecastAPIKey: String = {
+        if let plistPath = NSBundle.mainBundle().pathForResource("CurrentWeather", ofType: "plist"),
+            let weatherDictionary = NSDictionary(contentsOfFile: plistPath), let APIKey = weatherDictionary["APIKey"] as? String {
+                return weatherDictionary["APIKey"] as! String
+        } else {
+            return ""
+        }
+    }()
+    
     let coordinate: (lat: Double, long: Double) = (37.8267, -122.423)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+  
+        
         retrieveWeatherForecast()
+        println("forecast key: \(forecastAPIKey)")
     }
     
     override func didReceiveMemoryWarning() {
