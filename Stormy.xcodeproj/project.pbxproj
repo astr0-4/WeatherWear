@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FAC308461BA2293C006318BB /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC308451BA2293C006318BB /* ForecastService.swift */; };
+		FAC308AF1BA27307006318BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC308AE1BA27307006318BB /* Images.xcassets */; };
 		FAEDE00F1B9796D10058B606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDE00E1B9796D10058B606 /* AppDelegate.swift */; };
 		FAEDE0111B9796D10058B606 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDE0101B9796D10058B606 /* ViewController.swift */; };
 		FAEDE0141B9796D10058B606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEDE0121B9796D10058B606 /* Main.storyboard */; };
-		FAEDE0161B9796D10058B606 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEDE0151B9796D10058B606 /* Images.xcassets */; };
 		FAEDE0191B9796D10058B606 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEDE0171B9796D10058B606 /* LaunchScreen.xib */; };
 		FAEDE0251B9796D10058B606 /* StormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDE0241B9796D10058B606 /* StormyTests.swift */; };
+		FAEDE0311B9797960058B606 /* CurrentWeather.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAEDE0301B9797960058B606 /* CurrentWeather.plist */; };
+		FAEDE0331B97981B0058B606 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDE0321B97981B0058B606 /* CurrentWeather.swift */; };
+		FAEDE0351B97C3500058B606 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDE0341B97C3500058B606 /* NetworkOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +30,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FAC308451BA2293C006318BB /* ForecastService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
+		FAC308AE1BA27307006318BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FAEDE0091B9796D10058B606 /* Stormy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stormy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEDE00D1B9796D10058B606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEDE00E1B9796D10058B606 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAEDE0101B9796D10058B606 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAEDE0131B9796D10058B606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FAEDE0151B9796D10058B606 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FAEDE0181B9796D10058B606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FAEDE01E1B9796D10058B606 /* StormyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEDE0231B9796D10058B606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEDE0241B9796D10058B606 /* StormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormyTests.swift; sourceTree = "<group>"; };
+		FAEDE0301B9797960058B606 /* CurrentWeather.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = CurrentWeather.plist; path = ../../../Downloads/CurrentWeather.plist; sourceTree = "<group>"; };
+		FAEDE0321B97981B0058B606 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		FAEDE0341B97C3500058B606 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkOperation.swift; path = ../NetworkOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +85,13 @@
 		FAEDE00B1B9796D10058B606 /* Stormy */ = {
 			isa = PBXGroup;
 			children = (
+				FAEDE0341B97C3500058B606 /* NetworkOperation.swift */,
+				FAEDE0321B97981B0058B606 /* CurrentWeather.swift */,
 				FAEDE00E1B9796D10058B606 /* AppDelegate.swift */,
 				FAEDE0101B9796D10058B606 /* ViewController.swift */,
+				FAC308451BA2293C006318BB /* ForecastService.swift */,
 				FAEDE0121B9796D10058B606 /* Main.storyboard */,
-				FAEDE0151B9796D10058B606 /* Images.xcassets */,
+				FAC308AE1BA27307006318BB /* Images.xcassets */,
 				FAEDE0171B9796D10058B606 /* LaunchScreen.xib */,
 				FAEDE00C1B9796D10058B606 /* Supporting Files */,
 			);
@@ -91,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				FAEDE00D1B9796D10058B606 /* Info.plist */,
+				FAEDE0301B9797960058B606 /* CurrentWeather.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -194,7 +206,8 @@
 			files = (
 				FAEDE0141B9796D10058B606 /* Main.storyboard in Resources */,
 				FAEDE0191B9796D10058B606 /* LaunchScreen.xib in Resources */,
-				FAEDE0161B9796D10058B606 /* Images.xcassets in Resources */,
+				FAEDE0311B9797960058B606 /* CurrentWeather.plist in Resources */,
+				FAC308AF1BA27307006318BB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEDE0351B97C3500058B606 /* NetworkOperation.swift in Sources */,
 				FAEDE0111B9796D10058B606 /* ViewController.swift in Sources */,
+				FAEDE0331B97981B0058B606 /* CurrentWeather.swift in Sources */,
+				FAC308461BA2293C006318BB /* ForecastService.swift in Sources */,
 				FAEDE00F1B9796D10058B606 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +425,7 @@
 				FAEDE02A1B9796D10058B606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAEDE02B1B9796D10058B606 /* Build configuration list for PBXNativeTarget "StormyTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +434,7 @@
 				FAEDE02D1B9796D10058B606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
