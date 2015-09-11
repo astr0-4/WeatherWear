@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var currentTemperatureLabel: UILabel?
     @IBOutlet weak var currentHumidityLabel: UILabel?
     @IBOutlet weak var currentPrecipitationLabel: UILabel?
     @IBOutlet weak var currentWeatherIcon: UIImageView?
     @IBOutlet weak var currentWeatherSummary: UILabel?
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
-    
     @IBOutlet weak var refreshButton: UIButton?
+    
+    let locationManager = CLLocationManager()
+    
     private let forecastAPIKey: String = {
         if let plistPath = NSBundle.mainBundle().pathForResource("CurrentWeather", ofType: "plist"),
             let weatherDictionary = NSDictionary(contentsOfFile: plistPath), let APIKey = weatherDictionary["APIKey"] as? String {
@@ -27,13 +29,15 @@ class ViewController: UIViewController {
             return ""
         }
     }()
-    
+
     let coordinate: (lat: Double, long: Double) = (37.8267, -122.423)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-  
-        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+
         retrieveWeatherForecast()
         println("forecast key: \(forecastAPIKey)")
     }
