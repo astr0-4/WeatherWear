@@ -56,9 +56,15 @@ struct CurrentWeather {
     let precipProbability: Int?
     let summary: String?
     var icon: UIImage? = UIImage(named: "default.png")
+    let feelsLikeTemp: Int?
     
     init(weatherDictionary: [String: AnyObject]) {
-        temperature = weatherDictionary["temperature"] as? Int
+        if let temperatureInFahrenheit = weatherDictionary["temperature"] as? Int {
+            temperature = Int((temperatureInFahrenheit - 32) * 5/9)
+        } else {
+            temperature = nil
+        }
+        
         if let humidityFloat = weatherDictionary["humidity"] as? Double {
            humidity = Int(humidityFloat * 100)
         } else {
@@ -75,6 +81,13 @@ struct CurrentWeather {
         if let iconString = weatherDictionary["icon"] as? String, let weatherIcon: Icon = Icon(rawValue: iconString) {
             icon = weatherIcon.toImage()
         }
+        
+        if let feelsLikeTempInFahrenheit = weatherDictionary["apparentTemperature"] as? Int {
+            feelsLikeTemp = Int((feelsLikeTempInFahrenheit - 32) * 5/9)
+        } else {
+            feelsLikeTemp = nil
+        }
+        
     }
 
 }

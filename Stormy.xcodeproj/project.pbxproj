@@ -14,9 +14,9 @@
 		FAEDE0141B9796D10058B606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEDE0121B9796D10058B606 /* Main.storyboard */; };
 		FAEDE0191B9796D10058B606 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEDE0171B9796D10058B606 /* LaunchScreen.xib */; };
 		FAEDE0251B9796D10058B606 /* StormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDE0241B9796D10058B606 /* StormyTests.swift */; };
-		FAEDE0311B9797960058B606 /* CurrentWeather.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAEDE0301B9797960058B606 /* CurrentWeather.plist */; };
 		FAEDE0331B97981B0058B606 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDE0321B97981B0058B606 /* CurrentWeather.swift */; };
 		FAEDE0351B97C3500058B606 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDE0341B97C3500058B606 /* NetworkOperation.swift */; };
+		FAEE62B31BB8B81E00CBA9A3 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAEE62B21BB8B81E00CBA9A3 /* APIKey.plist */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +41,9 @@
 		FAEDE01E1B9796D10058B606 /* StormyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEDE0231B9796D10058B606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEDE0241B9796D10058B606 /* StormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormyTests.swift; sourceTree = "<group>"; };
-		FAEDE0301B9797960058B606 /* CurrentWeather.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = CurrentWeather.plist; path = ../../../Downloads/CurrentWeather.plist; sourceTree = "<group>"; };
 		FAEDE0321B97981B0058B606 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		FAEDE0341B97C3500058B606 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkOperation.swift; path = ../NetworkOperation.swift; sourceTree = "<group>"; };
+		FAEE62B21BB8B81E00CBA9A3 /* APIKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				FAEDE00D1B9796D10058B606 /* Info.plist */,
-				FAEDE0301B9797960058B606 /* CurrentWeather.plist */,
+				FAEE62B21BB8B81E00CBA9A3 /* APIKey.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -168,7 +168,9 @@
 		FAEDE0011B9796D10058B606 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Alex;
 				TargetAttributes = {
 					FAEDE0081B9796D10058B606 = {
@@ -205,8 +207,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEDE0141B9796D10058B606 /* Main.storyboard in Resources */,
+				FAEE62B31BB8B81E00CBA9A3 /* APIKey.plist in Resources */,
 				FAEDE0191B9796D10058B606 /* LaunchScreen.xib in Resources */,
-				FAEDE0311B9797960058B606 /* CurrentWeather.plist in Resources */,
 				FAC308AF1BA27307006318BB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +294,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -358,6 +361,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Stormy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-Stroulger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -368,6 +372,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Stormy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-Stroulger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -386,6 +391,7 @@
 				);
 				INFOPLIST_FILE = StormyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-Stroulger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stormy.app/Stormy";
 			};
@@ -401,6 +407,7 @@
 				);
 				INFOPLIST_FILE = StormyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-Stroulger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stormy.app/Stormy";
 			};
